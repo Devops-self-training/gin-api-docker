@@ -18,13 +18,17 @@ jobs:
       - docker/check:
           docker-username: DOCKER_USR 
           docker-password: DOCKER_PWD
+      - run:
+          name: Generate tag name
+          command: |
+              current_date_time=$(date +"%Y%m%d%H%M")
       - docker/build:
           image: akakshuki/gin-api-docker
-          tag: $CIRCLE_SHA1
+          tag: $current_date_time
           path: .
       - docker/push:
           image: akakshuki/gin-api-docker
-          tag: $CIRCLE_SHA1
+          tag: $current_date_time
           
   build:
     working_directory: ~/repo
