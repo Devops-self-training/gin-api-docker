@@ -15,6 +15,9 @@ jobs:
     steps:
       - docker/build:
           image: github.com/devops-self-training/gin-api-docker
+          registry: github.com 
+          tag: $DATENOW 
+          
   build:
     working_directory: ~/repo
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
