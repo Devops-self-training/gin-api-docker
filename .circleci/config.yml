@@ -20,6 +20,7 @@ jobs:
           registry: github.com
           tag: $DATENOW 
           path: .
+      - run: docker images
 
           
   build:
