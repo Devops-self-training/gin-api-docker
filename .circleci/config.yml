@@ -4,7 +4,23 @@ version: 2.1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+orbs:
+  docker: circleci/docker@2.2.0
+
 jobs:
+  docker-build-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - docker/build:
+          attach-at: ./ 
+          debug: false 
+          docker-context: . 
+          image: github.com/devops-self-training/gin-api-docker
+          tag: $DATENOW
+          registry: github.com 
+          treat-warnings-as-errors: false 
   build:
     working_directory: ~/repo
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
@@ -40,3 +56,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
+      - docker-build-job
