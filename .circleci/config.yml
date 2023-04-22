@@ -14,11 +14,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - docker/build:
-          image: github.com/devops-self-training/gin-api-docker 
-          debug: false 
-          registry: github.com 
-          step-name: docker-build-go 
-          tag: $DATENOW 
+          image: github.com/devops-self-training/gin-api-docker
   build:
     working_directory: ~/repo
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
