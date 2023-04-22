@@ -24,12 +24,10 @@ jobs:
             export TAG=$(date +%Y%m%d%H%M%S)
             echo "Tag: $TAG"
       - docker/build:
-          image: akakshuki/gin-api-docker
-          tag: $TAG
+          image: akakshuki/gin-api-docker:$TAG
           path: .
       - docker/push:
-          image: akakshuki/gin-api-docker
-          tag: $TAG
+          image: akakshuki/gin-api-docker:$TAG
           
   build:
     working_directory: ~/repo
