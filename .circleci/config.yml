@@ -24,6 +24,10 @@ jobs:
           registry: github.com 
           tag: $CIRCLE_SHA1
           path: .
+      - docker/push:
+          image: github.com/devops-self-training/gin-api-docker
+          registry: github.com 
+          tag: $CIRCLE_SHA1
           
   build:
     working_directory: ~/repo
