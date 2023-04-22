@@ -16,6 +16,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - docker/check:
+          registry: github.com
           docker-username: GH_DOCKER_USR 
           docker-password: GH_DOCKER_TOKEN
       - docker/build:
