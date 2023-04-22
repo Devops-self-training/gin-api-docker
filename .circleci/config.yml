@@ -19,15 +19,17 @@ jobs:
           docker-username: DOCKER_USR 
           docker-password: DOCKER_PWD
       - run:
-          name: Generate tag name
-          command: export CURRENT_TIME=$(date +"%Y%m%d%H%M") >> "$BASH_ENV"
+          name: Set Tag
+          command: |
+            export TAG=$(date +%Y%m%d%H%M%S)
+            echo "Tag: $TAG"
       - docker/build:
           image: akakshuki/gin-api-docker
-          tag: ${CURRENT_TIME}
+          tag: $TAG
           path: .
       - docker/push:
           image: akakshuki/gin-api-docker
-          tag: ${CURRENT_TIME}
+          tag: $TAG
           
   build:
     working_directory: ~/repo
