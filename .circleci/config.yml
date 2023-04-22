@@ -19,11 +19,11 @@ jobs:
           docker-username: DOCKER_USR 
           docker-password: DOCKER_PWD
       - docker/build:
-          image: devops-self-training/gin-api-docker
+          image: akakshuki/gin-api-docker
           tag: $CIRCLE_SHA1
           path: .
       - docker/push:
-          image: devops-self-training/gin-api-docker
+          image: akakshuki/gin-api-docker
           tag: $CIRCLE_SHA1
           
   build:
