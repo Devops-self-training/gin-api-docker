@@ -14,6 +14,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - setup_remote_docker
       - docker/build:
           image: github.com/devops-self-training/gin-api-docker
           registry: github.com
