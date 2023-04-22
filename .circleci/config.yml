@@ -15,12 +15,14 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - docker/check:
+          docker-username: GH_DOCKER_USR 
+          docker-password: GH_DOCKER_TOKEN
       - docker/build:
           image: github.com/devops-self-training/gin-api-docker
-          registry: github.com
-          tag: $DATENOW 
+          registry: github.com 
+          tag: $CIRCLE_SHA1
           path: .
-
           
   build:
     working_directory: ~/repo
