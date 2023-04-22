@@ -20,7 +20,7 @@ jobs:
           docker-password: DOCKER_PWD
       - run:
           name: Generate tag name
-          command: export CURRENT_TIME=$(date +"%Y%m%d%H%M")
+          command: export CURRENT_TIME=$(date +"%Y%m%d%H%M") >> "$BASH_ENV"
       - docker/build:
           image: akakshuki/gin-api-docker
           tag: $CURRENT_TIME
