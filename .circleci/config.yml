@@ -23,11 +23,11 @@ jobs:
           command: export CURRENT_TIME=$(date +"%Y%m%d%H%M") >> "$BASH_ENV"
       - docker/build:
           image: akakshuki/gin-api-docker
-          tag: $CURRENT_TIME
+          tag: ${CURRENT_TIME}
           path: .
       - docker/push:
           image: akakshuki/gin-api-docker
-          tag: $CURRENT_TIME
+          tag: ${CURRENT_TIME}
           
   build:
     working_directory: ~/repo
