@@ -13,12 +13,13 @@ jobs:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
+      - checkout
       - docker/build:
           image: github.com/devops-self-training/gin-api-docker
           registry: github.com
           tag: $DATENOW 
           path: .
-          
+
           
   build:
     working_directory: ~/repo
