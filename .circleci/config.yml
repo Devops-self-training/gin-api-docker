@@ -16,17 +16,14 @@ jobs:
       - checkout
       - setup_remote_docker
       - docker/check:
-          registry: github.com
-          docker-username: GH_DOCKER_USR 
-          docker-password: GH_DOCKER_TOKEN
+          docker-username: DOCKER_USR 
+          docker-password: DOCKER_PWD
       - docker/build:
           image: devops-self-training/gin-api-docker
-          registry: github.com 
           tag: $CIRCLE_SHA1
           path: .
       - docker/push:
           image: devops-self-training/gin-api-docker
-          registry: github.com 
           tag: $CIRCLE_SHA1
           
   build:
