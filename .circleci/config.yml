@@ -15,8 +15,10 @@ jobs:
     steps:
       - docker/build:
           image: github.com/devops-self-training/gin-api-docker
-          registry: github.com 
+          registry: github.com
           tag: $DATENOW 
+          path: .
+          
           
   build:
     working_directory: ~/repo
