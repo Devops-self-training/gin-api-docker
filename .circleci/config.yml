@@ -14,7 +14,6 @@ jobs:
       - image: cimg/base:stable
     steps:
       - docker/build:
-          attach-at: ./ 
           debug: false 
           docker-context: . 
           image: github.com/devops-self-training/gin-api-docker
