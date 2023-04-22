@@ -20,7 +20,7 @@ jobs:
           docker-username: GH_DOCKER_USR 
           docker-password: GH_DOCKER_TOKEN
       - docker/build:
-          image: github.com/devops-self-training/gin-api-docker
+          image: devops-self-training/gin-api-docker
           registry: github.com 
           tag: $CIRCLE_SHA1
           path: .
