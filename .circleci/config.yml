@@ -18,16 +18,11 @@ jobs:
       - docker/check:
           docker-username: DOCKER_USR 
           docker-password: DOCKER_PWD
-      - run:
-          name: Set Tag
-          command: |
-            export TAG=$(date +%Y%m%d%H%M%S)
-            echo "Tag: $TAG"
       - docker/build:
-          image: akakshuki/gin-api-docker:$TAG
+          image: akakshuki/gin-api-docker
           path: .
       - docker/push:
-          image: akakshuki/gin-api-docker:$TAG
+          image: akakshuki/gin-api-docker
           
   build:
     working_directory: ~/repo
@@ -60,8 +55,10 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+  Build-job: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
+  Build-docker-job:
+    jobs: 
       - docker-build-job
